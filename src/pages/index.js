@@ -12,6 +12,8 @@ import SEO from '../components/seo'
 import TimeSeriesGraph from '../components/Graphs/TimeSeriesGraph'
 import GoogleMap from '../components/GoogleMap/GoogleMap'
 import AirQualitySummary from '../components/AirQualitySummary/AirQualitySummary'
+import { render } from "react-dom";
+import Autocomplete from "../components/Autocomplete";
 
 const API_MAP = 'AIzaSyCeEtWrTm6_sPXDtijAIYYyxWG6_dMSME4'
 const MapWrapped = withScriptjs(withGoogleMap(GoogleMap))
@@ -98,7 +100,12 @@ const IndexPage = () => {
         <div className="container-fluid main-container">
           <div className="row">
             <div className="col-md-7 col-12">
-              <input className="form-control" id="nodeSearch" type="text" placeholder="Search..." />
+              <Autocomplete
+              suggestions={[
+                "USC-MC",
+                "USC-SC",
+              ]}
+              />
             </div>
             <div className="col-md-5 col-12 groupBtn">
               <button
